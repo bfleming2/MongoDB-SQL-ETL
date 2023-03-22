@@ -1,20 +1,22 @@
 import sqlite3 
 import os
 
+# Joining the file path for the content.db together to see if the file exists
 directory = "C:/Users/Ben Fleming/Desktop/TAMID/Claro_Work/"
 file = "content.db"
 file_path = os.path.join(directory, file)
 
+# Checking if the file already exists and if it does it will be deleted
 if os.path.exists(file_path):
    os.remove(file_path)
 with open(file_path, 'w') as f:
         pass
 
+# Opening a connection so we can execute a query on the content.db
 conn = sqlite3.connect("content.db")
 
 conn.execute('''CREATE TABLE users 
-        (_id varchar(50),
-        id varchar(50) PRIMARY KEY,
+        (id varchar(50) PRIMARY KEY,
         state int,
         accountType int,
         parentId varchar(10),
@@ -36,7 +38,7 @@ conn.execute('''CREATE TABLE users
         presentGuidedTours boolean,
         presentFullHierarchy boolean,
         motivations varchar(50),
-        personsOfInterest varchar(50),
+        personsOfInterest text[],
         privacyApprovalDate varchar(50),
         engagementLevel int,
         shouldGetQuestioners boolean,

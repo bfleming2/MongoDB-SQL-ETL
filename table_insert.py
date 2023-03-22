@@ -41,7 +41,8 @@ query = "INSERT INTO users ("
 
 # Getting all of the keys so we can set the columns in the Insert INTO statement
 for key in data:
-    query = query + "" + key + ", "
+    if str(key) != "_id":
+        query = query + "" + key + ", "
 
 query = query[0:len(query) - 2] + ") \nVALUES"
 
@@ -51,7 +52,18 @@ for index in range(lines):
     # Iterates through the json
     for key in data:
         # These three columns are distinct objects need to ask Shaul but making them NULL for now
-        if str(key) != "motivations" and str(key) != "personsOfInterest" and str(key) != "_id":
+        if str(key) == "_id":
+            continue
+        elif str(key) == "personsOfInterest":
+            sql_code += "\'{"
+            for item in data[key][str(index)]:
+                sql_code += "\"" + str(item) + "\"" + ", "
+            if len(data[key][str(index)]) != 0:
+                sql_code = sql_code[0:len(sql_code) - 2]
+            sql_code += "}\', "
+        elif str(key) == "motivations":
+            sql_code += "NULL, "
+        else:
             # Any empty value will be labeled as NULL in the table
             if data[key][str(index)] == None or str(data[key][str(index)]) == "NULL" or data[key][str(index)] == "None":
                 sql_code += "NULL, "
@@ -72,8 +84,6 @@ for index in range(lines):
                     else:
                         sql_code += "\'" + str(data[key][str(index)]) + "\'"
                 sql_code += ", "
-        else:
-            sql_code += "NULL, "
     if index != lines - 1:
         # Removes last comma from the list
         sql_code = sql_code[0:len(sql_code) - 2] + "),\n"
@@ -83,6 +93,7 @@ for index in range(lines):
     query += sql_code
 query += ";"
 
+print(query)
 # Ask Shaul his opinion on this?????
 # query = query.replace("\'\'", "NULL")
 # print(query)
