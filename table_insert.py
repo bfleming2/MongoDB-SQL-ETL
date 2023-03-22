@@ -4,7 +4,9 @@ import pandas as pd
 import os
 
 # Counts the total lines in a file
-directory = "C:/Users/Ben Fleming/Desktop/TAMID/Claro_Work/Claro/External_data"
+# Change the directory to where the mongodb-sql-etl directory is located
+directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl/"
+directory += "External_data"
 file = "users.json"
 file_path = os.path.join(directory, file)
 
@@ -93,7 +95,6 @@ for index in range(lines):
     query += sql_code
 query += ";"
 
-print(query)
 # Ask Shaul his opinion on this?????
 # query = query.replace("\'\'", "NULL")
 # print(query)

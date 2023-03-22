@@ -2,7 +2,8 @@ import sqlite3
 import os
 
 # Joining the file path for the content.db together to see if the file exists
-directory = "C:/Users/Ben Fleming/Desktop/TAMID/Claro_Work/"
+# Change directory to where your mongodb-sql-etl is located
+directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl"
 file = "content.db"
 file_path = os.path.join(directory, file)
 
