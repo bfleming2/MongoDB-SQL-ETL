@@ -1,2 +1,7 @@
+# This will ignore the content.db file and all of the jsons in External_data
+# Allows us to have a github privately with our data not being on github
 content.db
 External_data/
+
+# Make sure never to commit content.db or External_data folder
+# It shouldn't let you commit these files/folders though
