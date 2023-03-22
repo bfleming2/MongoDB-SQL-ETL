@@ -1,4 +1,4 @@
-# This will ignore the content.db file and all of the jsons in External_data
+# This will ignore the content.db, ERD.png and all of the JSONs in External_data
 # Allows us to have a github privately with our data not being on github
 content.db
 External_data/
