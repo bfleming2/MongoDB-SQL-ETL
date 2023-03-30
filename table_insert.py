@@ -16,6 +16,7 @@ file = data.decode('utf-8').splitlines()
 
 lines = len(file)
 
+
 # Sets the file path for the users_clean.json file
 file = "users_clean.json"
 file_path = os.path.join(directory, file)
