@@ -3,7 +3,7 @@ import os
 
 # Joining the file path for the content.db together to see if the file exists
 # Change directory to where your mongodb-sql-etl is located
-directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl"
+directory = "/Users/rohanpandit/mongodb-sql-etl/"
 file = "content.db"
 file_path = os.path.join(directory, file)
 
@@ -16,8 +16,15 @@ with open(file_path, 'w') as f:
 # Opening a connection so we can execute a query on the content.db
 conn = sqlite3.connect("content.db")
 
-conn.execute('''CREATE TABLE BLANKKKKKKK 
-        (SOME COLUMN NAME);''')
+conn.execute('''CREATE TABLE resellers 
+        (_id varchar(50), 
+        id String, 
+        firstName String, 
+        lastName String, 
+        mailAdress String, 
+        userId String, 
+        createdTimeStamp String, 
+        description String);''')
 # Persons of interest and motivations need to be array
 # will create new type object for them later
 # Need to create few lines to see if content.db is empty
