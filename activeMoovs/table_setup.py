@@ -16,8 +16,15 @@ with open(file_path, 'w') as f:
 # Opening a connection so we can execute a query on the content.db
 conn = sqlite3.connect("content.db")
 
-conn.execute('''CREATE TABLE BLANKKKKKKK 
-        (SOME COLUMN NAME);''')
+conn.execute('''CREATE TABLE activeMoovs 
+        (id varchar(50) PRIMARY KEY,
+         userID varchar(50), 
+         counterPartId varchar(50),
+         startDate varchar(50),
+         priority DOUBLE(5),
+         FOREIGN KEY(userID) REFERENCES users(id)),
+         FOREIGN KEY(moovID) REFERENCES moovs(id),
+         FOREIGN KEY(counterPart) REFERENCES ;''')
 # Persons of interest and motivations need to be array
 # will create new type object for them later
 # Need to create few lines to see if content.db is empty
