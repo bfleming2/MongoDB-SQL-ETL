@@ -17,15 +17,15 @@ file = data.decode('utf-8').splitlines()
 lines = len(file)
 
 # Sets the file path for the users_clean.json file
-file = "users_clean.json"
+file = "activeMoovs_clean.json"
 file_path = os.path.join(directory, file)
 
 # Checking to see if the file users_clean.json exists so it isn't remade
 if not os.path.exists(file_path):
     # Cleans the files
     # Change for your files
-    df = pd.read_json('users.json', lines=True)
-    df.to_json('users_clean.json')
+    df = pd.read_json('activeMoovs.json', lines=True)
+    df.to_json('activeMoovs_clean.json')
 
 # Clearing the content.db database and then restarting the connection
 conn = sqlite3.connect("content.db")
