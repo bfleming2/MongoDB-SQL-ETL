@@ -3,7 +3,7 @@ import os
 
 # Joining the file path for the content.db together to see if the file exists
 # Change directory to where your mongodb-sql-etl is located
-directory = "/Users/rohanpandit/mongodb-sql-etl/"
+directory = "C:/Users/Ben Fleming/Desktop/TAMID//mongodb-sql-etl/"
 file = "content.db"
 file_path = os.path.join(directory, file)
 
@@ -17,11 +17,10 @@ with open(file_path, 'w') as f:
 conn = sqlite3.connect("content.db")
 
 conn.execute('''CREATE TABLE resellers 
-        (_id varchar(50), 
-        id String, 
+        (id String, 
         firstName String, 
         lastName String, 
-        mailAdress String, 
+        mailAddress String, 
         userId String, 
         createdTimeStamp String, 
         description String);''')

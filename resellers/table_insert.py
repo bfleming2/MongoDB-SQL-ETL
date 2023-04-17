@@ -5,7 +5,7 @@ import os
 
 # Counts the total lines in a file
 # Change the directory to where the mongodb-sql-etl directory is located
-directory = "/Users/rohanpandit/mongodb-sql-etl/"
+directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl/"
 directory += "External_data"
 file = "resellers.json"
 file_path = os.path.join(directory, file)
@@ -24,8 +24,8 @@ file_path = os.path.join(directory, file)
 if not os.path.exists(file_path):
     # Cleans the files
     # Change for your files
-    df = pd.read_json('resellers.json', lines=True)
-    df.to_json('resellers_clean.json')
+    df = pd.read_json('External_data/resellers.json', lines=True)
+    df.to_json('External_data/resellers_clean.json')
 
 # Clearing the content.db database and then restarting the connection
 conn = sqlite3.connect("content.db")
@@ -44,7 +44,8 @@ query = "INSERT INTO resellers ("
 
 # Getting all of the keys so we can set the columns in the Insert INTO statement
 for key in data:
-    query = query + "" + key + ", "
+    if key != "_id":
+        query = query + "" + key + ", "
 
 query = query[0:len(query) - 2] + ") \nVALUES"
 
@@ -78,8 +79,8 @@ print(query)
 # query = query.replace("\'\'", "NULL")
 # print(query)
 
-#conn.execute(query)
-#conn.commit()
+conn.execute(query)
+conn.commit()
 
 print("Values inserted successfully :)")
 
