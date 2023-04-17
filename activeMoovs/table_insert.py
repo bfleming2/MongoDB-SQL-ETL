@@ -24,12 +24,12 @@ file_path = os.path.join(directory, file)
 if not os.path.exists(file_path):
     # Cleans the files
     # Change for your files
-    df = pd.read_json('activeMoovs.json', lines=True)
-    df.to_json('activeMoovs_clean.json')
+    df = pd.read_json('External_data/activeMoovs.json', lines=True)
+    df.to_json('External_data/activeMoovs_clean.json')
 
 # Clearing the content.db database and then restarting the connection
 conn = sqlite3.connect("content.db")
-conn.execute("DELETE FROM users;")
+conn.execute("DELETE FROM activeMoovs;")
 conn.commit()
 conn.close()
 
@@ -40,7 +40,7 @@ data = {}
 with open(file_path, 'r') as f:
     data = json.load(f)
 
-query = "INSERT INTO users (" 
+query = "INSERT INTO activeMoovs (" 
 
 # Getting all of the keys so we can set the columns in the Insert INTO statement
 for key in data:
