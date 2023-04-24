@@ -55,4 +55,19 @@ conn.execute('''CREATE TABLE users
 # may write .sh file to do it if not easy in python
 print ("Table created successfully")
 
+conn.execute('''CREATE TABLE resellers 
+        (id String, 
+        firstName String, 
+        lastName String, 
+        mailAddress String, 
+        userId String, 
+        createdTimeStamp String, 
+        description String);''')
+# Persons of interest and motivations need to be array
+# will create new type object for them later
+# Need to create few lines to see if content.db is empty
+# If it isn't empty clear content.db
+# may write .sh file to do it if not easy in python
+print ("Table created successfully")
+
 conn.close()
