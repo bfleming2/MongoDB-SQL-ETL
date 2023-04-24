@@ -3,6 +3,12 @@ import json
 import pandas as pd
 import os
 
+
+##-----------------------------------------
+## USERS!!!!!
+##-----------------------------------------
+
+
 # Counts the total lines in a file
 # Change the directory to where the mongodb-sql-etl directory is located
 directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl/"
@@ -96,10 +102,6 @@ for index in range(lines):
     query += sql_code
 query += ";"
 
-# Ask Shaul his opinion on this?????
-# query = query.replace("\'\'", "NULL")
-# print(query)
-
 conn.execute(query)
 conn.commit()
 
@@ -111,6 +113,7 @@ conn.close()
 ##-----------------------------------------
 ## RESELLERS!!!!!
 ##-----------------------------------------
+
 
 directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl/"
 directory += "External_data"
