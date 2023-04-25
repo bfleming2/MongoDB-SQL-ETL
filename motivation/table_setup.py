@@ -16,7 +16,7 @@ with open(file_path, 'w') as f:
 # Opening a connection so we can execute a query on the content.db
 conn = sqlite3.connect("content.db")
 
-conn.execute('''CREATE TABLE BLANKKKKKKK 
+conn.execute('''CREATE TABLE MOTIVATIONS
         (SOME COLUMN NAME);''')
 # Persons of interest and motivations need to be array
 # will create new type object for them later
