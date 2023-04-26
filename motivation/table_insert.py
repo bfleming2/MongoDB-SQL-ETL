@@ -5,11 +5,7 @@ import os
 
 # Counts the total lines in a file
 # Change the directory to where the mongodb-sql-etl directory is located
-<<<<<<< Updated upstream
-directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl/"
-=======
 directory = "/Users/joshleeman/Downloads/TAMID_Tech_Spring_2023_Claro/mongodb-sql-etl/"
->>>>>>> Stashed changes
 directory += "External_data"
 file = "users.json"
 file_path = os.path.join(directory, file)
@@ -29,13 +25,8 @@ file_path = os.path.join(directory, file)
 if not os.path.exists(file_path):
     # Cleans the files
     # Change for your files
-<<<<<<< Updated upstream
-    df = pd.read_json('users.json', lines=True)
-    df.to_json('users_clean.json')
-=======
     df = pd.read_json('External_data/motivations.json', lines=True)
     df.to_json('External_data/motivations_clean.json')
->>>>>>> Stashed changes
 
 # Clearing the content.db database and then restarting the connection
 conn = sqlite3.connect("content.db")
@@ -64,9 +55,6 @@ query = query[0:len(query) - 2] + ") \nVALUES"
 for index in range(lines):
     sql_code = "("
     # Iterates through the json (NEED TO DO THIS)
-<<<<<<< Updated upstream
-
-=======
     for key in data :
         if str(key) == '_id' :
             continue
@@ -94,7 +82,6 @@ for index in range(lines):
     print(sql_code)
     query += sql_code 
 query += ";"
->>>>>>> Stashed changes
 # Ask Shaul his opinion on this?????
 # query = query.replace("\'\'", "NULL")
 
