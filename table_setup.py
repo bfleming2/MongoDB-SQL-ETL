@@ -90,4 +90,3 @@ conn.execute('''CREATE TABLE motivationId
 print ("MotivationId Table created successfully")
 
 conn.close()
-conn.close()
