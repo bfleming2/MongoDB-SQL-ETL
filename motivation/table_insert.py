@@ -7,7 +7,7 @@ import os
 # Change the directory to where the mongodb-sql-etl directory is located
 directory = "/Users/joshleeman/Downloads/TAMID_Tech_Spring_2023_Claro/mongodb-sql-etl/"
 directory += "External_data"
-file = "users.json"
+file = "motivations.json"
 file_path = os.path.join(directory, file)
 
 
@@ -18,7 +18,7 @@ file = data.decode('utf-8').splitlines()
 lines = len(file)
 
 # Sets the file path for the users_clean.json file
-file = "users_clean.json"
+file = "motivations_clean.json"
 file_path = os.path.join(directory, file)
 
 # Checking to see if the file users_clean.json exists so it isn't remade
@@ -30,7 +30,7 @@ if not os.path.exists(file_path):
 
 # Clearing the content.db database and then restarting the connection
 conn = sqlite3.connect("content.db")
-conn.execute("DELETE FROM users;")
+conn.execute("DELETE FROM MOTIVATIONS;")
 conn.commit()
 conn.close()
 
@@ -41,7 +41,7 @@ data = {}
 with open(file_path, 'r') as f:
     data = json.load(f)
 
-query = "INSERT INTO users (" 
+query = "INSERT INTO MOTIVATIONS (" 
 
 # Getting all of the keys so we can set the columns in the Insert INTO statement
 for key in data:

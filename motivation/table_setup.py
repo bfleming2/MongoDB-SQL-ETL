@@ -3,7 +3,7 @@ import os
 
 # Joining the file path for the content.db together to see if the file exists
 # Change directory to where your mongodb-sql-etl is located
-directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl"
+directory = "/Users/joshleeman/Downloads/TAMID_Tech_Spring_2023_Claro/mongodb-sql-etl"
 file = "content.db"
 file_path = os.path.join(directory, file)
 
@@ -17,7 +17,17 @@ with open(file_path, 'w') as f:
 conn = sqlite3.connect("content.db")
 
 conn.execute('''CREATE TABLE MOTIVATIONS
-        (SOME COLUMN NAME);''')
+        (id varchar(50) PRIMARY KEY,
+        name varchar(50),
+        shortDescription varchar(50),
+        longDescription varchar(50),
+        longDescriptionPlural varchar(10),
+        additionalData varchar(50),
+        imageUrl varchar(50),
+        color varchar(50),
+        tailResolution varchar(50),
+        insights text[]);''')
+
 # Persons of interest and motivations need to be array
 # will create new type object for them later
 # Need to create few lines to see if content.db is empty
