@@ -109,7 +109,6 @@ for index in range(lines):
     
 query += ";"
 queryMessageParams += ";"
-print(query)
 conn.execute(query)
 conn.execute(queryMessageParams)
 conn.commit()

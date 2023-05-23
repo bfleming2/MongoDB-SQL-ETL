@@ -54,7 +54,6 @@ for key in data:
         query = query + "" + key + ", "
 query = query[0:len(query) - 2] + ") \nVALUES"
 
-print(query)
 # Access each user in the engagementTips table with the outer for loop
 for index in range(lines):
     sql_code = "("

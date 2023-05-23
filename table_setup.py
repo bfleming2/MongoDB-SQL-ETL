@@ -99,4 +99,27 @@ conn.execute('''CREATE TABLE engagementTips
         content varchar(50),
         reasoning varchar(50));''')
 print ("engagmentTips Table created successfully")
+
+##-----------------------------------------
+## EngagmentMessages and MessageParams!!!!!!!
+##-----------------------------------------
+conn.execute('''CREATE TABLE engagementMessages
+        (id varchar(50) PRIMARY KEY,
+        templateId varchar(50),
+        userId varchar(50),
+        type int,
+        counterpartId varchar(10),
+        timestamp varchar(50),
+        distTemplateName varchar(50),
+        messageParamId varchar(50));''')
+print("engagementMessages Table created successfully")
+
+conn.execute('''CREATE TABLE messageParams
+        (messageParamId int PRIMARY KEY,
+        userFirstName varchar(50),
+        counterpartName varchar(50),
+        header varchar(50),
+        subHeader varchar(10),
+        content varchar(50));''')
+print ("messageParams Table created successfully")
 conn.close()
