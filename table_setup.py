@@ -122,4 +122,22 @@ conn.execute('''CREATE TABLE messageParams
         subHeader varchar(10),
         content varchar(50));''')
 print ("messageParams Table created successfully")
+##-----------------------------------------
+## Moovs!!!!!!!
+##-----------------------------------------
+conn.execute('''CREATE TABLE moovs 
+        (id varchar(50) PRIMARY KEY,
+        score int,
+        image varchar(50),
+        complexity int,
+        name varchar(50),
+        motivationId varchar(50),
+        description varchar(50),
+        issueId varchar(50),
+        howTo varchar(10),
+        contributor varchar(10),
+        reasoning varchar(10),
+        steps text[],
+        conflictId varchar(10));''')
+print ("Moovs Table created successfully")
 conn.close()
