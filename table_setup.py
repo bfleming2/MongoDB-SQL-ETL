@@ -140,4 +140,38 @@ conn.execute('''CREATE TABLE moovs
         steps text[],
         conflictId varchar(10));''')
 print ("Moovs Table created successfully")
+##-----------------------------------------
+## activeMoovs, activeMoovsEvents, and activeMoovsSteps!!!!!
+##-----------------------------------------
+conn.execute('''CREATE TABLE activeMoovs 
+        (id varchar(50) PRIMARY KEY,
+         userID varchar(50), 
+         counterpartId varchar(50),
+         moovId varchar(50),
+         priority DOUBLE(5),
+         startDate varchar(50),
+         endDate varchar(50),
+         plannedEndDate varchar(50),
+         isOverdue varchar(50),
+         notifiedUserForOverdue varchar(50),
+         feedbackScore DOUBLE(5),
+         feedbackText varchar(50),
+         eventTimeStamp text[],
+         stepId text[]);''')
+print ("activeMoovs Table created successfully")
+conn.execute('''CREATE TABLE activeMoovsEvents 
+        (id int PRIMARY KEY,
+         timeStamp varchar(50),
+         type int, 
+         content varchar(50),
+         additionalText varchar(50),
+         score int,
+         additionalNumericData int);''')
+print ("activeMoovsEvents Table created successfully")
+conn.execute('''CREATE TABLE activeMoovsSteps
+        (id varchar(50) PRIMARY KEY,
+         idx int, 
+         state int,
+         comment varchar(50));''')
+print ("activeMoovsSteps Table created successfully")
 conn.close()
