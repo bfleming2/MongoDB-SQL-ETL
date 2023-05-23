@@ -16,6 +16,9 @@ with open(file_path, 'w') as f:
 # Opening a connection so we can execute a query on the content.db
 conn = sqlite3.connect("content.db")
 
+##-----------------------------------------
+## Users!!!!!!!
+##-----------------------------------------
 conn.execute('''CREATE TABLE users 
         (id varchar(50) PRIMARY KEY,
         state int,
@@ -55,6 +58,9 @@ conn.execute('''CREATE TABLE users
 # may write .sh file to do it if not easy in python
 print ("Users table created successfully")
 
+##-----------------------------------------
+## Resellers!!!!!!!
+##-----------------------------------------
 conn.execute('''CREATE TABLE resellers 
         (id String, 
         firstName String, 
@@ -63,13 +69,11 @@ conn.execute('''CREATE TABLE resellers
         userId String, 
         createdTimeStamp String, 
         description String);''')
-# Persons of interest and motivations need to be array
-# will create new type object for them later
-# Need to create few lines to see if content.db is empty
-# If it isn't empty clear content.db
-# may write .sh file to do it if not easy in python
 print ("Resellers created successfully")
 
+##-----------------------------------------
+## Motivations!!!!!!!
+##-----------------------------------------
 conn.execute('''CREATE TABLE motivationId
         (id varchar(50) PRIMARY KEY,
         name varchar(50),
@@ -81,12 +85,18 @@ conn.execute('''CREATE TABLE motivationId
         color varchar(50),
         tailResolution varchar(50),
         insights text[]);''')
-
-# Persons of interest and motivations need to be array
-# will create new type object for them later
-# Need to create few lines to see if content.db is empty
-# If it isn't empty clear content.db
-# may write .sh file to do it if not easy in python
 print ("MotivationId Table created successfully")
 
+##-----------------------------------------
+## EngagmentTips!!!!!!!
+##-----------------------------------------
+conn.execute('''CREATE TABLE engagementTips
+        (id varchar(50) PRIMARY KEY,
+        motivationId varchar(50),
+        engagementType int,
+        header varchar(50),
+        subHeader varchar(10),
+        content varchar(50),
+        reasoning varchar(50));''')
+print ("engagmentTips Table created successfully")
 conn.close()
