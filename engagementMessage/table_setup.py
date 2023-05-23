@@ -15,23 +15,23 @@ with open(file_path, 'w') as f:
 
 # Opening a connection so we can execute a query on the content.db
 conn = sqlite3.connect("content.db")
-conn.execute('''CREATE TABLE motivationId
+conn.execute('''CREATE TABLE engagementMessages
         (id varchar(50) PRIMARY KEY,
-        name varchar(50),
-        shortDescription varchar(50),
-        longDescription varchar(50),
-        longDescriptionPlural varchar(10),
-        additionalData varchar(50),
-        imageUrl varchar(50),
-        color varchar(50),
-        tailResolution varchar(50),
-        insights text[]);''')
+        templateId varchar(50),
+        userId varchar(50),
+        type int,
+        counterpartId varchar(10),
+        timestamp varchar(50),
+        distTemplateName varchar(50),
+        messageParamId varchar(50));''')
+print("engagementMessages Table created successfully")
 
-# Persons of interest and motivations need to be array
-# will create new type object for them later
-# Need to create few lines to see if content.db is empty
-# If it isn't empty clear content.db
-# may write .sh file to do it if not easy in python
-print ("MotivationId Table created successfully")
-
+conn.execute('''CREATE TABLE messageParams
+        (messageParamId int PRIMARY KEY,
+        userFirstName varchar(50),
+        counterpartName varchar(50),
+        header varchar(50),
+        subHeader varchar(10),
+        content varchar(50));''')
+print ("messageParams Table created successfully")
 conn.close()
