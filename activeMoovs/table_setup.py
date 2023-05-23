@@ -19,12 +19,34 @@ conn = sqlite3.connect("content.db")
 conn.execute('''CREATE TABLE activeMoovs 
         (id varchar(50) PRIMARY KEY,
          userID varchar(50), 
-         counterPartId varchar(50),
-         startDate varchar(50),
+         counterpartId varchar(50),
+         moovId varchar(50),
          priority DOUBLE(5),
-         FOREIGN KEY(userID) REFERENCES users(id)),
-         FOREIGN KEY(moovID) REFERENCES moovs(id),
-         FOREIGN KEY(counterPart) REFERENCES ;''')
+         startDate varchar(50),
+         endDate varchar(50),
+         plannedEndDate varchar(50),
+         isOverdue varchar(50),
+         notifiedUserForOverdue varchar(50),
+         feedbackScore DOUBLE(5),
+         feedbackText varchar(50),
+         eventTimeStamp text[],
+         stepId text[]);''')
+print ("activeMoovs Table created successfully")
+conn.execute('''CREATE TABLE activeMoovsEvents 
+        (id int PRIMARY KEY,
+         timeStamp varchar(50),
+         type int, 
+         content varchar(50),
+         additionalText varchar(50),
+         score int,
+         additionalNumericData int);''')
+print ("activeMoovsEvents Table created successfully")
+conn.execute('''CREATE TABLE activeMoovsSteps
+        (id varchar(50) PRIMARY KEY,
+         idx int, 
+         state int,
+         comment varchar(50));''')
+print ("activeMoovsSteps Table created successfully")
 # Persons of interest and motivations need to be array
 # will create new type object for them later
 # Need to create few lines to see if content.db is empty
