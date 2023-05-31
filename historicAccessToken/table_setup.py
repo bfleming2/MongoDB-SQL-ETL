@@ -16,7 +16,7 @@ with open(file_path, 'w') as f:
 # Opening a connection so we can execute a query on the content.db
 conn = sqlite3.connect("content.db")
 
-conn.execute('''CREATE TABLE accessTokens 
+conn.execute('''CREATE TABLE historicAccessTokens 
         (id varchar(50) PRIMARY KEY,
         tokenBody varchar(50),
         resellerId varchar(50),

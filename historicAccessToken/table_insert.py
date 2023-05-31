@@ -5,7 +5,7 @@ import os
 
 
 ##-----------------------------------------
-## accessTokens!!!!!
+## historichistoricAccessTokens!!!!!
 ##-----------------------------------------
 
 
@@ -13,7 +13,7 @@ import os
 # Change the directory to where the mongodb-sql-etl directory is located
 directory = "C:/Users/Ben Fleming/Desktop/TAMID/mongodb-sql-etl/"
 directory += "External_data"
-file = "accessTokens.json"
+file = "historicAccessTokens.json"
 file_path = os.path.join(directory, file)
 
 with open(file_path, 'rb') as f:
@@ -23,15 +23,15 @@ file = data.decode('utf-8').splitlines()
 lines = len(file)
 
 
-# Sets the file path for the accessTokens_clean.json file
-file = "accessTokens_clean.json"
+# Sets the file path for the historicAccessTokens_clean.json file
+file = "historicAccessTokens_clean.json"
 file_path = os.path.join(directory, file)
 
-# Checking to see if the file accessTokens_clean.json exists so it isn't remade
+# Checking to see if the file historicAccessTokens_clean.json exists so it isn't remade
 if not os.path.exists(file_path):
     # Cleans the files
-    df = pd.read_json('External_data/accessTokens.json', lines=True)
-    df.to_json('External_data/accessTokens_clean.json')
+    df = pd.read_json('External_data/historicAccessTokens.json', lines=True)
+    df.to_json('External_data/historicAccessTokens_clean.json')
 
 conn = sqlite3.connect("content.db")
 
@@ -40,7 +40,7 @@ data = {}
 with open(file_path, 'r') as f:
     data = json.load(f)
 
-query = "INSERT INTO accessTokens (" 
+query = "INSERT INTO historicAccessTokens (" 
 
 # Getting all of the keys so we can set the columns in the Insert INTO statement
 for key in data:
@@ -49,7 +49,7 @@ for key in data:
 
 query = query[0:len(query) - 2] + ") \nVALUES"
 
-# Access each user in the accessTokens table with the outer for loop
+# Access each user in the historicAccessTokens table with the outer for loop
 for index in range(lines):
     sql_code = "("
     # Iterates through the json
