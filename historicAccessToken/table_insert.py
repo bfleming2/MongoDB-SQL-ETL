@@ -81,7 +81,7 @@ query += ";"
 conn.execute(query)
 conn.commit()
 
-print("Access Token Values inserted successfully :)")
+print("Historic Access Token Values inserted successfully :)")
 
 conn.close()
 

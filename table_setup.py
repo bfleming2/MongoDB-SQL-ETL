@@ -174,4 +174,23 @@ conn.execute('''CREATE TABLE activeMoovsSteps
          state int,
          comment varchar(50));''')
 print ("activeMoovsSteps Table created successfully")
+##-----------------------------------------
+## accessTokens and historicAccessTokens!!!!!
+##-----------------------------------------
+conn.execute('''CREATE TABLE accessTokens 
+        (id varchar(50) PRIMARY KEY,
+        tokenBody varchar(50),
+        resellerId varchar(50),
+        state int,
+        createdTimeStamp varchar(50),
+        activationTimeStamp varchar(50));''')
+print ("accessTokens Table created successfully")
+conn.execute('''CREATE TABLE historicAccessTokens 
+        (id varchar(50) PRIMARY KEY,
+        tokenBody varchar(50),
+        resellerId varchar(50),
+        state int,
+        createdTimeStamp varchar(50),
+        activationTimeStamp varchar(50));''')
+print ("historicAccessTokens Table created successfully")
 conn.close()

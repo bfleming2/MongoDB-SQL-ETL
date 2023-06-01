@@ -24,6 +24,6 @@ conn.execute('''CREATE TABLE accessTokens
         createdTimeStamp varchar(50),
         activationTimeStamp varchar(50));''')
 
-print ("accessToken Table created successfully")
+print ("accessTokens Table created successfully")
 
 conn.close()
